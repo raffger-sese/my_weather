@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'user.dart';
+import '../user.dart';
 
 @immutable
 class AuthState {

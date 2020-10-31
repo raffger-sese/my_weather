@@ -8,13 +8,14 @@ import 'package:my_weather/common/constants.dart';
 import 'package:my_weather/utils/string_util.dart';
 import 'package:redux/redux.dart';
 
-import '../../models/app_state.dart';
+import '../../models/states/app_state.dart';
 import '../../models/user.dart';
 
 class HomeContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StoreConnector<AppState, _ViewModel>(
+      onInit: (Store<AppState> store) => store.dispatch(RetrieveLocation()),
       distinct: true,
       converter: (Store<AppState> store) => _ViewModel.fromStore(store),
       builder: (BuildContext context, _ViewModel viewModel) {
@@ -67,11 +68,47 @@ Widget _buildUserInfo(_ViewModel viewModel) {
           isPrimary: true,
           textStyle: AppTheme.instance.h3White,
           onTap: () {
-            // onGithubLogin();
+            viewModel.isLocationShown
+                ? viewModel.onHideLocation()
+                : viewModel.onShowLocation();
           },
-          text: Labels.VIEW_LOC,
+          text: viewModel.isLocationShown ? Labels.HIDE_LOC : Labels.VIEW_LOC,
         ),
       ),
+      Visibility(
+          visible: viewModel.isLocationShown,
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(top: 20.0),
+                child: Text(
+                  'Latitude:',
+                  style: AppTheme.instance.textLessImportant,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 5.0),
+                child: Text(
+                  '${viewModel.latitude}',
+                  style: AppTheme.instance.text,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 20.0),
+                child: Text(
+                  'Longitude:',
+                  style: AppTheme.instance.textLessImportant,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 5.0),
+                child: Text(
+                  '${viewModel.longitude}',
+                  style: AppTheme.instance.text,
+                ),
+              ),
+            ],
+          )),
     ],
   );
 }
@@ -90,18 +127,33 @@ Widget _buildAvatar(_ViewModel viewModel) {
 
 class _ViewModel {
   final User user;
-  final Function() onPressed;
+  final Function() onShowLocation;
+  final Function() onHideLocation;
+  final double longitude;
+  final double latitude;
+  final bool isLocationShown;
 
   _ViewModel({
     @required this.user,
-    this.onPressed,
+    this.onShowLocation,
+    this.onHideLocation,
+    this.longitude,
+    this.latitude,
+    this.isLocationShown,
   });
 
   static _ViewModel fromStore(Store<AppState> store) {
     return _ViewModel(
-        user: store.state.authState.user,
-        onPressed: () {
-          store.dispatch(ShowLocation());
-        });
+      user: store.state.authState.user,
+      isLocationShown: store.state.homeState.isLocationShown,
+      latitude: store.state.homeState.latitude,
+      longitude: store.state.homeState.longitude,
+      onShowLocation: () {
+        store.dispatch(ShowLocation(isShown: true));
+      },
+      onHideLocation: () {
+        store.dispatch(ShowLocation(isShown: false));
+      },
+    );
   }
 }

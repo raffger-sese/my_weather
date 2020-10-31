@@ -4,7 +4,7 @@ import 'package:my_weather/common/components/app_custom_button.dart';
 import 'package:redux/redux.dart';
 
 import '../../actions/auth_actions.dart';
-import '../../models/app_state.dart';
+import '../../models/states/app_state.dart';
 
 class LogoutButton extends StatelessWidget {
   @override

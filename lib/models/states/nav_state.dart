@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../containers/home/home_container.dart';
+import '../../containers/home/home_container.dart';
 
 @immutable
 class NavState {

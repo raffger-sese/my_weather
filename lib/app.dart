@@ -6,7 +6,7 @@ import 'package:my_weather/screens/home_screen.dart';
 import 'package:redux/redux.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 
-import 'models/app_state.dart';
+import 'models/states/app_state.dart';
 import 'screens/main_screen.dart';
 
 class App extends StatelessWidget {

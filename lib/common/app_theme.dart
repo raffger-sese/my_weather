@@ -71,7 +71,7 @@ class AppTheme {
   ThemeData appTheme;
 
   AppTheme._internal() {
-    appBackgroundColor = Colors.blueAccent;
+    appBackgroundColor = Color(0xFF48C194);
     textColor = Color(0xFF56527B); // regular grey
     textHintColor = Color(0xFF9794AF);
     activeColor = Color(0xFFFF7253); // orange

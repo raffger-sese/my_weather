@@ -5,7 +5,7 @@ import 'package:my_weather/common/components/app_avatar.dart';
 import 'package:redux/redux.dart';
 
 import '../../containers/auth/logout_button.dart';
-import '../../models/app_state.dart';
+import '../../models/states/app_state.dart';
 import '../../models/user.dart';
 import '../../screens/login_screen.dart';
 

@@ -3,7 +3,7 @@ import 'package:my_weather/containers/home/profile_container.dart';
 import 'package:redux/redux.dart';
 
 import '../actions/nav_actions.dart';
-import '../models/nav_state.dart';
+import '../models/states/nav_state.dart';
 import '../containers/home/home_container.dart';
 import '../screens/dummy_screen_2.dart';
 

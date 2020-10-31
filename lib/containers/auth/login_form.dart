@@ -7,7 +7,7 @@ import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/redux.dart';
 
 import '../../actions/auth_actions.dart';
-import '../../models/app_state.dart';
+import '../../models/states/app_state.dart';
 
 class LoginForm extends StatefulWidget {
   @override

@@ -1,6 +1,6 @@
 import 'package:redux/redux.dart';
 
-import '../models/app_state.dart';
+import '../models/states/app_state.dart';
 
 class AppMiddleware {
   AppMiddleware();

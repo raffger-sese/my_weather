@@ -4,7 +4,7 @@ import 'package:my_weather/utils/shared_pref.dart';
 import 'package:redux/redux.dart';
 
 import '../actions/auth_actions.dart';
-import '../models/app_state.dart';
+import '../models/states/app_state.dart';
 import '../models/user.dart';
 import '../services/auth_service.dart';
 

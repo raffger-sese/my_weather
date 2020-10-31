@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
-import 'package:my_weather/models/app_state.dart';
+import 'package:my_weather/models/states/app_state.dart';
 import 'package:my_weather/screens/root_screen.dart';
 import 'package:redux/redux.dart';
 

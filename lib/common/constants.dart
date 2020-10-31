@@ -8,8 +8,7 @@ class Constant {
   static const LOCALE = "locale";
 }
 
-class NumConstant {
-}
+class NumConstant {}
 
 class AssetName {
   static const MY_WEATHER_LOGO = 'assets/icons/my-weather.png';
@@ -34,6 +33,7 @@ class Labels {
   static const HELLO = 'Hello World!';
   static const LOGIN_GITHUB = "Login with Github";
   static const VIEW_LOC = "Show curent location";
+  static const HIDE_LOC = "Hide curent location";
 }
 
 class CacheKeys {

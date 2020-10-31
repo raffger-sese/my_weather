@@ -4,7 +4,7 @@ import 'package:my_weather/common/app_theme.dart';
 import 'package:redux/redux.dart';
 
 import '../actions/nav_actions.dart';
-import '../models/app_state.dart';
+import '../models/states/app_state.dart';
 
 class BottomNav extends StatelessWidget {
   @override

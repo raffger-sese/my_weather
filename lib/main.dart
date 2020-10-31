@@ -5,7 +5,7 @@ import 'package:my_weather/store/store.dart';
 import 'package:my_weather/utils/dependency_locator.dart';
 import 'package:redux/redux.dart';
 
-import 'models/app_state.dart';
+import 'models/states/app_state.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

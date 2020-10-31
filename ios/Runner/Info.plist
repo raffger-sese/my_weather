@@ -47,5 +47,11 @@
 		</array>
 		<key>UIViewControllerBasedStatusBarAppearance</key>
 		<false />
+		<key>NSLocationWhenInUseUsageDescription</key>
+		<string>Allow app to use your location for navigating the map and the feed.</string>
+		<key>NSLocationAlwaysUsageDescription</key>
+		<string>Allow app to use your location for navigating the map and the feed.</string>
+		<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+		<string>Allow app to use your location for navigating the map and the feed.</string>
 	</dict>
 </plist>

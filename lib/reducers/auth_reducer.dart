@@ -1,7 +1,7 @@
 import 'package:redux/redux.dart';
 
 import '../actions/auth_actions.dart';
-import '../models/auth_state.dart';
+import '../models/states/auth_state.dart';
 
 Reducer<AuthState> authReducer = combineReducers([
   TypedReducer<AuthState, UserLoginRequest>(_userLoginRequestReducer),
