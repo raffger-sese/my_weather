@@ -2,15 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:my_weather/actions/home_action.dart';
 import 'package:my_weather/common/app_theme.dart';
-import 'package:my_weather/common/components/app_avatar.dart';
 import 'package:my_weather/common/constants.dart';
 import 'package:my_weather/models/weather_forecast.dart';
 import 'package:redux/redux.dart';
 
-import '../../containers/auth/logout_button.dart';
 import '../../models/states/app_state.dart';
 import '../../models/user.dart';
-import '../../screens/login_screen.dart';
 
 class WeatherForecastContainer extends StatelessWidget {
   @override
@@ -33,7 +30,8 @@ Widget _buildBody(BuildContext context, _ViewModel viewModel) {
       return _buildPortraitLayout(context,
           viewModel); // if orientation is portrait, show your portrait layout
     else
-      return _buildLandscapeLayout(context,viewModel); // else show the landscape one
+      return _buildLandscapeLayout(
+          context, viewModel); // else show the landscape one
   }));
 }
 
@@ -47,7 +45,7 @@ Widget _buildHeader(_ViewModel viewModel) {
   );
 }
 
-Widget _buildPortraitGrid(BuildContext context, _ViewModel viewModel) {
+Widget _buildPortraitTable(BuildContext context, _ViewModel viewModel) {
   return Padding(
     padding: const EdgeInsets.all(16.0),
     child: Container(
@@ -56,7 +54,24 @@ Widget _buildPortraitGrid(BuildContext context, _ViewModel viewModel) {
           FixedColumnWidth((MediaQuery.of(context).size.width - 32) / 2),
       border: TableBorder.all(
           color: Colors.black, style: BorderStyle.solid, width: 2),
-      children: _buildTableRows(viewModel.forecasts),
+      children: _buildTableRowsForPortrait(viewModel.forecasts),
+    )),
+  );
+}
+
+Widget _buildLandscapeTable(BuildContext context, _ViewModel viewModel) {
+  return Padding(
+    padding: const EdgeInsets.all(16.0),
+    child: Container(
+        child: Table(
+      defaultColumnWidth:
+          FixedColumnWidth((MediaQuery.of(context).size.width - 32) / 6),
+      border: TableBorder.all(
+        color: Colors.black,
+        style: BorderStyle.solid,
+        width: 2,
+      ),
+      children: _buildTableRowsForLandscape(viewModel.forecasts),
     )),
   );
 }
@@ -68,21 +83,34 @@ Widget _buildPortraitLayout(BuildContext context, _ViewModel viewModel) {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           _buildHeader(viewModel),
-          _buildPortraitGrid(context, viewModel),
+          _buildPortraitTable(context, viewModel),
         ],
       ),
     ),
   );
 }
 
-List<TableRow> _buildTableRows(List<WeatherForecast> forecasts) {
+List<TableRow> _buildTableRowsForPortrait(List<WeatherForecast> forecasts) {
   List<TableRow> weatherForecastRows = List<TableRow>();
   weatherForecastRows.add(TableRow(
     children: _buildTableHeaderForPortrait(),
   ));
   forecasts.forEach((forecast) {
     weatherForecastRows.add(TableRow(
-      children: _buildConcatenatedList(forecast),
+      children: _buildConcatenatedListForPortrait(forecast),
+    ));
+  });
+  return weatherForecastRows;
+}
+
+List<TableRow> _buildTableRowsForLandscape(List<WeatherForecast> forecasts) {
+  List<TableRow> weatherForecastRows = List<TableRow>();
+  weatherForecastRows.add(TableRow(
+    children: _buildTableHeaderForLandscape(),
+  ));
+  forecasts.forEach((forecast) {
+    weatherForecastRows.add(TableRow(
+      children: _buildConcatenatedListForLandscape(forecast),
     ));
   });
   return weatherForecastRows;
@@ -97,12 +125,47 @@ List<Widget> _buildTableHeaderForPortrait() {
   return weatherForecastRows;
 }
 
-List<Widget> _buildConcatenatedList(WeatherForecast forecast) {
+List<Widget> _buildTableHeaderForLandscape() {
+  List<Widget> weatherForecastRows = List<Widget>();
+  weatherForecastRows.add(Column(
+      children: [Text('Date (mm/dd/yyy)', style: AppTheme.instance.h2Bold)]));
+  weatherForecastRows.add(
+      Column(children: [Text('Temp (F)', style: AppTheme.instance.h2Bold)]));
+  weatherForecastRows.add(
+      Column(children: [Text('Description', style: AppTheme.instance.h2Bold)]));
+  weatherForecastRows
+      .add(Column(children: [Text('Main', style: AppTheme.instance.h2Bold)]));
+  weatherForecastRows.add(
+      Column(children: [Text('Pressure', style: AppTheme.instance.h2Bold)]));
+  weatherForecastRows.add(
+      Column(children: [Text('Humidity', style: AppTheme.instance.h2Bold)]));
+  return weatherForecastRows;
+}
+
+List<Widget> _buildConcatenatedListForPortrait(WeatherForecast forecast) {
   List<Widget> weatherForecastRows = List<Widget>();
   weatherForecastRows.add(Column(
       children: [Text('${forecast.date}', style: AppTheme.instance.text)]));
   weatherForecastRows.add(Column(
       children: [Text('${forecast.tempInF}', style: AppTheme.instance.text)]));
+  return weatherForecastRows;
+}
+
+List<Widget> _buildConcatenatedListForLandscape(WeatherForecast forecast) {
+  List<Widget> weatherForecastRows = List<Widget>();
+  weatherForecastRows.add(Column(
+      children: [Text('${forecast.date}', style: AppTheme.instance.text)]));
+  weatherForecastRows.add(Column(
+      children: [Text('${forecast.tempInF}', style: AppTheme.instance.text)]));
+  weatherForecastRows.add(Column(children: [
+    Text('${forecast.description}', style: AppTheme.instance.text)
+  ]));
+  weatherForecastRows.add(Column(
+      children: [Text('${forecast.main}', style: AppTheme.instance.text)]));
+  weatherForecastRows.add(Column(
+      children: [Text('${forecast.pressure}', style: AppTheme.instance.text)]));
+  weatherForecastRows.add(Column(
+      children: [Text('${forecast.humidity}', style: AppTheme.instance.text)]));
   return weatherForecastRows;
 }
 
@@ -113,7 +176,7 @@ Widget _buildLandscapeLayout(BuildContext context, _ViewModel viewModel) {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           _buildHeader(viewModel),
-          _buildPortraitGrid(context, viewModel),
+          _buildLandscapeTable(context, viewModel),
         ],
       ),
     ),
