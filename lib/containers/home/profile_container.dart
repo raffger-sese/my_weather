@@ -16,11 +16,7 @@ class ProfileContainer extends StatelessWidget {
       distinct: true,
       converter: (Store<AppState> store) => _ViewModel.fromStore(store),
       builder: (BuildContext context, _ViewModel viewModel) {
-        if (viewModel.isAuthenticated) {
-          return _buildBody(viewModel);
-        } else {
-          return LoginScreen();
-        }
+        return _buildBody(viewModel);
       },
     );
   }

@@ -1,4 +1,5 @@
 import 'package:my_weather/common/constants.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class StringUtil {
   StringUtil._internal();
@@ -14,6 +15,14 @@ class StringUtil {
   }
 
   String createGithublink(String username) {
-    return '${URLs.GITHUB}$username';  
+    return '${URLs.GITHUB}$username';
+  }
+
+  launchURL(String url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      print('Could not launch $url');
+    }
   }
 }

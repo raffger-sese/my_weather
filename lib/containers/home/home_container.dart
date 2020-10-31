@@ -57,9 +57,15 @@ Widget _buildUserInfo(_ViewModel viewModel) {
       ),
       Padding(
         padding: const EdgeInsets.only(top: 5.0),
-        child: Text(
-          StringUtil.instance.createGithublink(viewModel.user.username),
-          style: AppTheme.instance.text,
+        child: GestureDetector(
+          onTap: () {
+            StringUtil.instance.launchURL(
+                '${StringUtil.instance.createGithublink(viewModel.user.username)}');
+          },
+          child: Text(
+            StringUtil.instance.createGithublink(viewModel.user.username),
+            style: AppTheme.instance.text,
+          ),
         ),
       ),
       Padding(

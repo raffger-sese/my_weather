@@ -2,10 +2,12 @@ class Label {}
 
 class ButtonTitle {}
 
-class Constant {
+class Constants {
   static const NAME = "name";
   static const TOKEN = "token";
   static const LOCALE = "locale";
+  static const OPEN_WEATHER_API_KEY =
+      'b7293ca74b9f5c0823bdef8f3f4cd781'; //Todo: Modve this to config file
 }
 
 class NumConstant {}
@@ -31,9 +33,10 @@ class AuthConstants {
 class Labels {
   static const APP_NAME = 'My Weather';
   static const HELLO = 'Hello World!';
-  static const LOGIN_GITHUB = "Login with Github";
+  static const LOGIN_GITHUB = "Login";
   static const VIEW_LOC = "Show curent location";
   static const HIDE_LOC = "Hide curent location";
+  static const WEATHER_FORECAST = "Weather Forecast on the next few days";
 }
 
 class CacheKeys {
