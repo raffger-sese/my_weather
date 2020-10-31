@@ -45,6 +45,7 @@ flutter:
   uses-material-design: true
 
   assets:
+    - assets/icons/my-weather.jpg
     - assets/icons/my-weather.png
 
   fonts:

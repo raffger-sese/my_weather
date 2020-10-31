@@ -4,24 +4,16 @@ class ButtonTitle {}
 
 class Constant {
   static const NAME = "name";
-  static const EMAIL = "email";
-  static const IMAGE = "image";
-  static const UID = "uid";
   static const TOKEN = "token";
   static const LOCALE = "locale";
-  static const UPDATEDGROUPS = "updatedGroups";
-  static const JOINEDGROUPS = "joinedGroups";
-  static const STATUS = "status";
 }
 
 class NumConstant {
-  static const GROUPS_PER_SET = 7;
-  static const BADGE_HEIGHT = 13.0;
-  static const BADGE_WIDTH = 14.0;
 }
 
 class AssetName {
-  static const MY_WEATHER_ICON = 'assets/icons/my-weather.png';
+  static const MY_WEATHER_LOGO = 'assets/icons/my-weather.png';
+  static const MY_WEATHER_ICON = 'assets/icons/my-weather.jpg';
 }
 
 class AppRoutes {
@@ -41,9 +33,14 @@ class Labels {
   static const APP_NAME = 'My Weather';
   static const HELLO = 'Hello World!';
   static const LOGIN_GITHUB = "Login with Github";
+  static const VIEW_LOC = "Show curent location";
 }
 
 class CacheKeys {
   static const TOKEN = 'token';
   static const USER_DATA = 'userData';
+}
+
+class URLs {
+  static const GITHUB = 'https://github.com/';
 }

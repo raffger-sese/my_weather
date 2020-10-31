@@ -1,40 +1,31 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_redux/flutter_redux.dart';
-import 'package:my_weather/models/app_state.dart';
-import 'package:my_weather/screens/dashboard_screen.dart';
-import 'package:redux/redux.dart';
-
-import '../actions/auth_actions.dart';
-import 'login_screen.dart';
+import 'package:my_weather/common/constants.dart';
+import 'package:my_weather/containers/bottom_nav.dart';
+import 'package:my_weather/screens/home_screen.dart';
 
 class RootScreen extends StatelessWidget {
   @override
+  @override
   Widget build(BuildContext context) {
-    return StoreConnector<AppState, _ViewModel>(
-      onInit: (Store<AppState> store) => store.dispatch(AppStarted()),
-      distinct: true,
-      converter: (Store<AppState> store) => _ViewModel.fromStore(store),
-      builder: (BuildContext context, _ViewModel viewModel) {
-        return Container(
-          child: viewModel.rootScreen,
-        );
-      },
+    return Scaffold(
+      appBar: _createAppBar(),
+      body: HomeScreen(),
+      bottomNavigationBar: BottomNav(),
     );
   }
-}
 
-class _ViewModel {
-  final Widget rootScreen;
-
-  _ViewModel({
-    @required this.rootScreen,
-  });
-
-  static _ViewModel fromStore(Store<AppState> store) {
-    return _ViewModel(
-        rootScreen: store.state.authState.user != null &&
-                store.state.authState.isAuthenticated
-            ? DashboardScreen()
-            : LoginScreen());
+  AppBar _createAppBar() {
+    return AppBar(
+      title: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Image.asset(
+            AssetName.MY_WEATHER_ICON,
+            fit: BoxFit.contain,
+            height: 32,
+          )
+        ],
+      ),
+    );
   }
 }

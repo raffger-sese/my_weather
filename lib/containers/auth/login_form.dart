@@ -6,8 +6,8 @@ import 'package:my_weather/containers/auth_loading_indicator.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/redux.dart';
 
-import '../actions/auth_actions.dart';
-import '../models/app_state.dart';
+import '../../actions/auth_actions.dart';
+import '../../models/app_state.dart';
 
 class LoginForm extends StatefulWidget {
   @override
@@ -41,7 +41,7 @@ class LoginFormState extends State<LoginForm> {
       padding: const EdgeInsets.all(8.0),
       child: Container(
         child: Image.asset(
-          AssetName.MY_WEATHER_ICON,
+          AssetName.MY_WEATHER_LOGO,
           fit: BoxFit.fitHeight,
           height: 200,
         ),
@@ -74,7 +74,6 @@ class LoginFormState extends State<LoginForm> {
       }, builder: (BuildContext context, OnGithubLoginCallback onGithubLogin) {
         return AppCustomButton(
           isPrimary: true,
-          borderColor: AppTheme.instance.appBackgroundColor,
           textStyle: AppTheme.instance.h3White,
           onTap: () {
             onGithubLogin();

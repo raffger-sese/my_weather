@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
+import 'package:my_weather/common/app_theme.dart';
 import 'package:redux/redux.dart';
 
 import '../actions/nav_actions.dart';
@@ -13,7 +14,7 @@ class BottomNav extends StatelessWidget {
       converter: (Store<AppState> store) => _ViewModel.fromStore(store),
       builder: (BuildContext context, _ViewModel viewModel) {
         return BottomNavigationBar(
-          backgroundColor: Theme.of(context).primaryColor,
+          backgroundColor: AppTheme.instance.appBackgroundColor,
           currentIndex: viewModel.selectedBottomNav,
           onTap: viewModel.onBottomNavSelected,
           items: _getItems(),
@@ -26,15 +27,15 @@ class BottomNav extends StatelessWidget {
     return <BottomNavigationBarItem>[
       BottomNavigationBarItem(
         icon: Icon(Icons.home),
-        title: Text('Screen 1'),
+        label: 'Home',
       ),
       BottomNavigationBarItem(
-        icon: Icon(Icons.verified_user),
-        title: Text('Screen 2'),
+        icon: Icon(Icons.cloud),
+        label: 'Weather',
       ),
       BottomNavigationBarItem(
         icon: Icon(Icons.supervised_user_circle),
-        title: Text('Profile'),
+        label: 'Profile',
       ),
     ];
   }

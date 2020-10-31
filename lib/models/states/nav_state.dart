@@ -1,31 +1,31 @@
 import 'package:flutter/material.dart';
 
-import '../screens/dummy_screen_1.dart';
+import '../containers/home/home_container.dart';
 
 @immutable
 class NavState {
   final int selectedBottomNav;
-  final Widget rootScreen;
+  final Widget rootContainer;
 
   NavState({
     @required this.selectedBottomNav,
-    @required this.rootScreen,
+    @required this.rootContainer,
   });
 
   factory NavState.initial() {
     return NavState(
       selectedBottomNav: 0,
-      rootScreen: DummyScreen1(),
+      rootContainer: HomeContainer(),
     );
   }
 
   NavState copyWith({
     int selectedBottomNav,
-    Widget rootScreen,
+    Widget rootContainer,
   }) {
     return NavState(
       selectedBottomNav: selectedBottomNav ?? this.selectedBottomNav,
-      rootScreen: rootScreen ?? this.rootScreen,
+      rootContainer: rootContainer ?? this.rootContainer,
     );
   }
 }

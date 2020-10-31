@@ -26,7 +26,8 @@ class AuthMiddleware {
     next(action);
 
     // if (await _hasToken()) {
-    //   store.dispatch(UserLoaded(user: await _getUser()));
+    //   store.dispatch(
+    //       UserLoaded(user: await _readUser(), token: await _readToken()));
     // }
   }
 
@@ -38,10 +39,13 @@ class AuthMiddleware {
       final result = await _authService.loginWithGithub();
       await _persistToken(result.idToken);
 
-      final profile = await _authService.getUserDetails(result.accessToken);
-      await _persistUserData(profile);
-    } catch (e) {
-      print(e);
+      final user = await _authService.getUserDetails(result.accessToken);
+      await _persistUserData(user);
+      
+      store.dispatch(UserLoginSuccess(token: result.idToken, user: user));
+    } catch (error) {
+      print(error);
+      store.dispatch(UserLoginFailure(error: error));
     }
   }
 
@@ -55,7 +59,7 @@ class AuthMiddleware {
       NextDispatcher next) async {
     next(action);
 
-    store.dispatch(UserLoaded(user: action.user));
+    store.dispatch(UserLoaded(user: action.user, token: action.token));
   }
 
   void _logout(
@@ -67,7 +71,7 @@ class AuthMiddleware {
 
   /// HELPER FUNCTIONS
 
-  Future<void> _persistUserData(dynamic user) async {
+  Future<void> _persistUserData(User user) async {
     SharedPref.instance.save(CacheKeys.USER_DATA, user);
   }
 
@@ -75,17 +79,17 @@ class AuthMiddleware {
     SharedPref.instance.save(CacheKeys.TOKEN, token);
   }
 
-  Future<String> _getToken() async {
+  Future<String> _readToken() async {
     return SharedPref.instance.read(CacheKeys.TOKEN);
   }
 
-  Future<User> _getUser() async {
+  Future<User> _readUser() async {
     return SharedPref.instance.read(CacheKeys.USER_DATA);
   }
 
   Future<bool> _hasToken() async {
-    final token = await _getToken();
-    if (token != '') {
+    final token = await _readToken();
+    if (token != null) {
       return true;
     } else {
       return false;

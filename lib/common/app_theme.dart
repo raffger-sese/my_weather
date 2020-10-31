@@ -71,7 +71,7 @@ class AppTheme {
   ThemeData appTheme;
 
   AppTheme._internal() {
-    appBackgroundColor = Colors.white;
+    appBackgroundColor = Colors.blueAccent;
     textColor = Color(0xFF56527B); // regular grey
     textHintColor = Color(0xFF9794AF);
     activeColor = Color(0xFFFF7253); // orange
@@ -154,7 +154,7 @@ class AppTheme {
     );
 
     h3White = TextStyle(
-      color: appBackgroundColor,
+      color: Colors.white,
       fontSize: 16.0,
       fontFamily: primaryFont,
       fontWeight: FontWeight.w500,

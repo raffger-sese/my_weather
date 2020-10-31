@@ -20,6 +20,8 @@ AuthState _userLoginRequestReducer(AuthState state, UserLoginRequest action) {
 AuthState _userLoginRequestSuccess(AuthState state, UserLoginSuccess action) {
   return state.copyWith(
     isLoading: false,
+    user: action.user,
+    token: action.token,
   );
 }
 
@@ -28,6 +30,7 @@ AuthState _userLoaded(AuthState state, UserLoaded action) {
     isLoading: false,
     isAuthenticated: true,
     user: action.user,
+    token: action.token,
   );
 }
 

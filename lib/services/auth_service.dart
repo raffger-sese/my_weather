@@ -5,9 +5,10 @@ import 'dart:convert';
 import 'package:flutter_appauth/flutter_appauth.dart';
 import 'package:http/http.dart' as http;
 import 'package:my_weather/common/constants.dart';
+import 'package:my_weather/models/user.dart';
 
 abstract class AuthService {
-  Future<Map<String, dynamic>> getUserDetails(String accessToken);
+  Future<User> getUserDetails(String accessToken);
   Future<AuthorizationTokenResponse> loginWithGithub();
 }
 
@@ -32,7 +33,7 @@ class AuthServiceImpl implements AuthService {
   }
 
   @override
-  Future<Map<String, dynamic>> getUserDetails(String accessToken) async {
+  Future<User> getUserDetails(String accessToken) async {
     final url = 'https://${AuthConstants.AUTH0_DOMAIN}/userinfo';
     final response = await http.get(
       url,
@@ -40,7 +41,7 @@ class AuthServiceImpl implements AuthService {
     );
 
     if (response.statusCode == 200) {
-      return jsonDecode(response.body);
+      return User.fromGithubJson(jsonDecode(response.body));
     } else {
       throw Exception('Failed to get user details');
     }

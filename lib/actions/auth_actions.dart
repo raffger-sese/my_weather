@@ -20,8 +20,9 @@ class UserLoginSuccess {
 
 class UserLoaded {
   final User user;
+  final String token;
 
-  UserLoaded({this.user});
+  UserLoaded({this.user, this.token});
 }
 
 class UserLoginFailure {

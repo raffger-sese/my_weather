@@ -1,32 +1,36 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
+import 'package:my_weather/models/app_state.dart';
 import 'package:redux/redux.dart';
 
 import '../actions/auth_actions.dart';
-import '../models/app_state.dart';
 
-class LogoutButton extends StatelessWidget {
+class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StoreConnector<AppState, _ViewModel>(
+      onInit: (Store<AppState> store) => store.dispatch(AppStarted()),
       distinct: true,
       converter: (Store<AppState> store) => _ViewModel.fromStore(store),
       builder: (BuildContext context, _ViewModel viewModel) {
-        return RaisedButton(
-            child: Text('Logout'), onPressed: viewModel.onPressed);
+        return Container(
+          child: viewModel.rootContainer,
+        );
       },
     );
   }
 }
 
 class _ViewModel {
-  final Function() onPressed;
+  final Widget rootContainer;
 
-  _ViewModel({this.onPressed});
+  _ViewModel({
+    @required this.rootContainer,
+  });
 
   static _ViewModel fromStore(Store<AppState> store) {
-    return _ViewModel(onPressed: () {
-      store.dispatch(UserLogout());
-    });
+    return _ViewModel(
+      rootContainer: store.state.navState.rootContainer,
+    );
   }
 }

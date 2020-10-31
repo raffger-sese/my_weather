@@ -3,21 +3,25 @@ class User {
   final String username;
   final String fullName;
   final String profileLink;
+  final String profilePic;
 
-  User({this.token, this.username, this.fullName, this.profileLink});
+  User(
+      {this.token,
+      this.username,
+      this.fullName,
+      this.profileLink,
+      this.profilePic});
 
-  factory User.fromJson(Map<String, String> json) {
+  factory User.fromGithubJson(Map<String, dynamic> json) {
     return User(
-        token: json['token'],
-        username: json['username'],
-        fullName: json['firstName'] + ' ' + json['lastName'],
-        profileLink: json['profileLink']);
+        username: json['nickname'],
+        fullName: json['name'],
+        profilePic: json['picture']);
   }
 
   Map<String, dynamic> toJson() => {
-        'token': token ?? '',
         'username': username ?? '',
         'fullName': fullName ?? '',
-        'profileLink': profileLink ?? '',
+        'profilePic': profilePic ?? '',
       };
 }

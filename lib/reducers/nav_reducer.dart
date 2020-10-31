@@ -1,29 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:my_weather/containers/home/profile_container.dart';
 import 'package:redux/redux.dart';
 
 import '../actions/nav_actions.dart';
 import '../models/nav_state.dart';
-import '../screens/dummy_screen_1.dart';
+import '../containers/home/home_container.dart';
 import '../screens/dummy_screen_2.dart';
-import '../screens/profile_screen.dart';
 
 Reducer<NavState> navReducer = combineReducers([
   TypedReducer<NavState, ChangeBottomNavAction>(_changeBottomNav),
 ]);
 
 NavState _changeBottomNav(NavState state, ChangeBottomNavAction action) {
-  Widget rootScreen = state.rootScreen;
+  Widget rootContainer = state.rootContainer;
 
   if (action.index == 0) {
-    rootScreen = DummyScreen1();
+    rootContainer = HomeContainer();
   } else if (action.index == 1) {
-    rootScreen = DummyScreen2();
+    rootContainer = DummyScreen2();
   } else if (action.index == 2) {
-    rootScreen = ProfileScreen();
+    rootContainer = ProfileContainer();
   }
 
   return state.copyWith(
     selectedBottomNav: action.index,
-    rootScreen: rootScreen,
+    rootContainer: rootContainer,
   );
 }
