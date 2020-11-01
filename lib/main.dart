@@ -1,11 +1,16 @@
+/* --------------------- Flutter -------------------- */
 import 'package:flutter/material.dart';
-import 'package:my_weather/app.dart';
-import 'package:my_weather/common/app_theme.dart';
-import 'package:my_weather/store/store.dart';
-import 'package:my_weather/utils/dependency_locator.dart';
+/* --------------------- 3rd Party ------------------ */
 import 'package:redux/redux.dart';
-
+/* --------------------- Common --------------------- */
+import 'common/app_theme.dart';
+import 'package:my_weather/app.dart';
+/* -------------------- Store ----------------------- */
+import 'store/store.dart';
+/* --------------------- Models --------------------- */
 import 'models/states/app_state.dart';
+/* -------------------- Utilities ------------------- */
+import 'utils/dependency_locator.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

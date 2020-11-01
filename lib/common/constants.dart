@@ -22,7 +22,7 @@ class AppRoutes {
   static const DASHBOARD_SCREEN = "/dashboard";
 }
 
-class AuthConstants {
+class AuthConstants {  // Todo: Move these to config file
   static const AUTH0_DOMAIN = 'dev-q710hbr4.us.auth0.com';
   static const AUTH0_CLIENT_ID = 'iDXy1B2M6fA3xky1L0ILiu0W3iZOLP8M';
 
