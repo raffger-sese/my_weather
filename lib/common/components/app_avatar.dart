@@ -1,8 +1,11 @@
+/* --------------------- Flutter -------------------- */
 import 'package:flutter/material.dart';
-import 'package:my_weather/models/user.dart';
-import 'package:my_weather/utils/string_util.dart';
-
+/* --------------------- Common --------------------- */
 import '../app_theme.dart';
+/* --------------------- Models --------------------- */
+import '../../models/user.dart';
+/* -------------------- Utilities ------------------- */
+import '../../utils/string_util.dart';
 
 class AppAvatar extends StatelessWidget {
   final User user;

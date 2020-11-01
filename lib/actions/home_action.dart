@@ -1,5 +1,4 @@
 /* --------------------- Models --------------------- */
-
 import '../models/weather_forecast.dart';
 
 class ShowLocation {

@@ -1,4 +1,5 @@
-import 'package:meta/meta.dart';
+/* --------------------- Flutter -------------------- */
+import 'package:flutter/cupertino.dart';
 
 class ChangeBottomNavAction {
   final int index;

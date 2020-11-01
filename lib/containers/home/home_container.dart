@@ -1,15 +1,21 @@
+/* --------------------- Flutter -------------------- */
 import 'package:flutter/material.dart';
+/* --------------------- 3rd Party ------------------ */
 import 'package:flutter_redux/flutter_redux.dart';
-import 'package:my_weather/actions/home_action.dart';
-import 'package:my_weather/common/app_theme.dart';
-import 'package:my_weather/common/components/app_avatar.dart';
-import 'package:my_weather/common/components/app_custom_button.dart';
-import 'package:my_weather/common/constants.dart';
-import 'package:my_weather/utils/string_util.dart';
 import 'package:redux/redux.dart';
-
-import '../../models/states/app_state.dart';
+/* --------------------- Common --------------------- */
+import '../../common/app_theme.dart';
+import '../../common/components/app_avatar.dart';
+import '../../common/components/app_custom_button.dart';
+import '../../common/constants.dart';
+/* -------------------- Actions --------------------- */
+import '../../actions/home_action.dart';
+/* --------------------- Models --------------------- */
 import '../../models/user.dart';
+import '../../models/states/app_state.dart';
+
+/* -------------------- Utilities ------------------- */
+import '../../utils/string_util.dart';
 
 class HomeContainer extends StatelessWidget {
   @override

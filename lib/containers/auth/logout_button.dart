@@ -1,9 +1,13 @@
+/* --------------------- Flutter -------------------- */
 import 'package:flutter/material.dart';
+/* --------------------- 3rd Party ------------------ */
 import 'package:flutter_redux/flutter_redux.dart';
-import 'package:my_weather/common/components/app_custom_button.dart';
 import 'package:redux/redux.dart';
-
+/* --------------------- Common --------------------- */
+import '../../common/components/app_custom_button.dart';
+/* -------------------- Actions --------------------- */
 import '../../actions/auth_actions.dart';
+/* --------------------- Models --------------------- */
 import '../../models/states/app_state.dart';
 
 class LogoutButton extends StatelessWidget {
