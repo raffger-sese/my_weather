@@ -48,7 +48,7 @@ class AuthMiddleware {
       store.dispatch(UserLoginSuccess(token: result.idToken, user: user));
     } catch (error) {
       // print(error);
-      store.dispatch(UserLoginFailure(error: error));
+      store.dispatch(UserLoginFailure(error: error.message));
     }
   }
 

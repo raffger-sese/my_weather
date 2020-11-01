@@ -28,8 +28,8 @@ class AuthServiceImpl implements AuthService {
           scopes: ['openid', 'profile', 'offline_access'],
         ),
       );
-    } catch (e, s) {
-      print(s);
+    } catch (e) {
+      print(e.message);
       throw Exception('Failed to login via github.');
     }
     return result;
