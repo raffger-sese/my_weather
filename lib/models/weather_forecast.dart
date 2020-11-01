@@ -1,3 +1,4 @@
+/* -------------------- Utilities ------------------- */
 import 'package:my_weather/utils/date_util.dart';
 
 class WeatherForecast {

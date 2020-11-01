@@ -1,8 +1,11 @@
+/* --------------------- Flutter -------------------- */
 import 'package:flutter/material.dart';
+/* --------------------- 3rd Party ------------------ */
 import 'package:flutter_redux/flutter_redux.dart';
-import 'package:my_weather/common/app_theme.dart';
 import 'package:redux/redux.dart';
-
+/* --------------------- Common --------------------- */
+import '../common/app_theme.dart';
+/* --------------------- Models --------------------- */
 import '../models/states/app_state.dart';
 
 class AuthLoadingIndicator extends StatelessWidget {

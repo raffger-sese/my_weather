@@ -1,6 +1,7 @@
+/* --------------------- Flutter -------------------- */
 import 'package:meta/meta.dart';
-import 'package:my_weather/models/states/home_state.dart';
-
+/* --------------------- Models --------------------- */
+import '../states/home_state.dart';
 import '../states/auth_state.dart';
 import '../states/nav_state.dart';
 

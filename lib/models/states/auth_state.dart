@@ -1,5 +1,6 @@
+/* --------------------- Flutter -------------------- */
 import 'package:flutter/material.dart';
-
+/* --------------------- Models --------------------- */
 import '../user.dart';
 
 @immutable

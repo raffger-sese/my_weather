@@ -1,11 +1,15 @@
+/* --------------------- Flutter -------------------- */
 import 'package:flutter/material.dart';
+/* --------------------- 3rd Party ------------------ */
 import 'package:flutter_redux/flutter_redux.dart';
-import 'package:my_weather/models/states/app_state.dart';
-import 'package:my_weather/screens/root_screen.dart';
 import 'package:redux/redux.dart';
-
+/* -------------------- Actions --------------------- */
 import '../actions/auth_actions.dart';
+/* --------------------- Models --------------------- */
+import '../models/states/app_state.dart';
+/* --------------------- Screens -------------------- */
 import 'login_screen.dart';
+import 'root_screen.dart';
 
 class MainScreen extends StatelessWidget {
   @override

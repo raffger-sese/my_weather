@@ -1,6 +1,8 @@
+/* --------------------- 3rd Party ------------------ */
 import 'package:redux/redux.dart';
-
+/* -------------------- Actions --------------------- */
 import '../actions/auth_actions.dart';
+/* --------------------- Models --------------------- */
 import '../models/states/auth_state.dart';
 
 Reducer<AuthState> authReducer = combineReducers([

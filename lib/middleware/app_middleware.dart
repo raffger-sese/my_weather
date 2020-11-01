@@ -1,5 +1,6 @@
+/* --------------------- 3rd Party ------------------ */
 import 'package:redux/redux.dart';
-
+/* --------------------- Models --------------------- */
 import '../models/states/app_state.dart';
 
 class AppMiddleware {

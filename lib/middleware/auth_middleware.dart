@@ -1,11 +1,15 @@
-import 'package:my_weather/common/constants.dart';
-import 'package:my_weather/utils/dependency_locator.dart';
-import 'package:my_weather/utils/shared_pref.dart';
+/* --------------------- 3rd Party ------------------ */
 import 'package:redux/redux.dart';
-
+/* --------------------- Common --------------------- */
+import '../common/constants.dart';
+/* --------------------- Models --------------------- */
 import '../actions/auth_actions.dart';
 import '../models/states/app_state.dart';
 import '../models/user.dart';
+/* -------------------- Utilities ------------------- */
+import '../utils/dependency_locator.dart';
+import '../utils/shared_pref.dart';
+/* -------------------- Service --------------------- */
 import '../services/auth_service.dart';
 
 class AuthMiddleware {

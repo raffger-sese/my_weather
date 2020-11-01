@@ -1,10 +1,15 @@
-import 'package:geolocator/geolocator.dart';
-import 'package:my_weather/actions/home_action.dart';
-import 'package:my_weather/models/states/app_state.dart';
-import 'package:my_weather/models/weather_forecast.dart';
-import 'package:my_weather/services/weather_service.dart';
-import 'package:my_weather/utils/dependency_locator.dart';
+/* --------------------- 3rd Party ------------------ */
 import 'package:redux/redux.dart';
+import 'package:geolocator/geolocator.dart';
+/* -------------------- Actions --------------------- */
+import '../actions/home_action.dart';
+/* --------------------- Models --------------------- */
+import '../models/states/app_state.dart';
+import '../models/weather_forecast.dart';
+/* -------------------- Utilities ------------------- */
+import '../utils/dependency_locator.dart';
+/* -------------------- Service --------------------- */
+import '../services/weather_service.dart';
 
 class HomeMiddleware {
   WeatherService _weatherService = getIt.get<WeatherService>();

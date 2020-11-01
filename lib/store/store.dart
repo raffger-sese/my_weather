@@ -1,9 +1,12 @@
-import 'package:my_weather/middleware/home_middleware.dart';
+/* --------------------- 3rd Party ------------------ */
 import 'package:redux/redux.dart';
-
+/* -------------------- Middleware ------------------ */
+import '../middleware/home_middleware.dart';
 import '../middleware/app_middleware.dart';
 import '../middleware/auth_middleware.dart';
+/* --------------------- Models --------------------- */
 import '../models/states/app_state.dart';
+/* --------------------- Reducers ------------------- */
 import '../reducers/app_reducer.dart';
 
 Store<AppState> createStore() {

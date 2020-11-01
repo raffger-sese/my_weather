@@ -1,11 +1,14 @@
+/* --------------------- Flutter -------------------- */
 import 'dart:async';
 import 'dart:core';
 import 'dart:convert';
-
-import 'package:flutter_appauth/flutter_appauth.dart';
+/* --------------------- 3rd Party ------------------ */
 import 'package:http/http.dart' as http;
-import 'package:my_weather/common/constants.dart';
-import 'package:my_weather/models/user.dart';
+import 'package:flutter_appauth/flutter_appauth.dart';
+/* --------------------- Common --------------------- */
+import '../common/constants.dart';
+/* --------------------- Models --------------------- */
+import '../models/user.dart';
 
 abstract class AuthService {
   Future<User> getUserDetails(String accessToken);

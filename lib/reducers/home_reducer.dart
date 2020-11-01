@@ -1,6 +1,9 @@
-import 'package:my_weather/actions/home_action.dart';
-import 'package:my_weather/models/states/home_state.dart';
+/* --------------------- 3rd Party ------------------ */
 import 'package:redux/redux.dart';
+/* -------------------- Actions --------------------- */
+import '../actions/home_action.dart';
+/* --------------------- Models --------------------- */
+import '../models/states/home_state.dart';
 
 Reducer<HomeState> homeReducer = combineReducers([
   TypedReducer<HomeState, LoadUserLocation>(_loadUserLocation),

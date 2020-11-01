@@ -1,13 +1,16 @@
+/* --------------------- Flutter -------------------- */
 import 'package:flutter/material.dart';
+/* --------------------- 3rd Party ------------------ */
 import 'package:flutter_redux/flutter_redux.dart';
-import 'package:my_weather/common/app_theme.dart';
-import 'package:my_weather/common/components/app_avatar.dart';
 import 'package:redux/redux.dart';
-
-import '../../containers/auth/logout_button.dart';
+/* --------------------- Common --------------------- */
+import '../../common/app_theme.dart';
+import '../../common/components/app_avatar.dart';
+/* --------------------- Models --------------------- */
 import '../../models/states/app_state.dart';
 import '../../models/user.dart';
-import '../../screens/login_screen.dart';
+/* -------------------- Containers ------------------ */
+import '../../containers/auth/logout_button.dart';
 
 class ProfileContainer extends StatelessWidget {
   @override

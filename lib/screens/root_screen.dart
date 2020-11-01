@@ -1,7 +1,11 @@
+/* --------------------- Flutter -------------------- */
 import 'package:flutter/material.dart';
-import 'package:my_weather/common/constants.dart';
-import 'package:my_weather/containers/bottom_nav.dart';
-import 'package:my_weather/screens/home_screen.dart';
+/* --------------------- Common --------------------- */
+import '../common/constants.dart';
+/* --------------------- Screens -------------------- */
+import '../screens/home_screen.dart';
+/* -------------------- Containers ------------------ */
+import '../containers/bottom_nav.dart';
 
 class RootScreen extends StatelessWidget {
   @override

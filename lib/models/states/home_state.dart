@@ -1,5 +1,7 @@
+/* --------------------- Flutter -------------------- */
 import 'package:flutter/material.dart';
-import 'package:my_weather/models/weather_forecast.dart';
+/* --------------------- Models --------------------- */
+import '../../models/weather_forecast.dart';
 
 @immutable
 class HomeState {

@@ -1,6 +1,7 @@
-import 'package:my_weather/reducers/home_reducer.dart';
-
+/* --------------------- Models --------------------- */
 import '../models/states/app_state.dart';
+/* --------------------- Reducers ------------------- */
+import '../reducers/home_reducer.dart';
 import '../reducers/auth_reducer.dart';
 import '../reducers/nav_reducer.dart';
 

@@ -1,10 +1,14 @@
+/* --------------------- Flutter -------------------- */
 import 'package:flutter/material.dart';
-import 'package:my_weather/containers/home/profile_container.dart';
-import 'package:my_weather/containers/home/weather_forecast_container.dart';
+/* --------------------- 3rd Party ------------------ */
 import 'package:redux/redux.dart';
-
+/* -------------------- Actions --------------------- */
 import '../actions/nav_actions.dart';
+/* --------------------- Models --------------------- */
 import '../models/states/nav_state.dart';
+/* -------------------- Containers ------------------ */
+import '../containers/home/profile_container.dart';
+import '../containers/home/weather_forecast_container.dart';
 import '../containers/home/home_container.dart';
 
 Reducer<NavState> navReducer = combineReducers([
