@@ -8,8 +8,16 @@ import '../models/states/nav_state.dart';
 import '../containers/home/home_container.dart';
 
 Reducer<NavState> navReducer = combineReducers([
+  TypedReducer<NavState, InitNav>(_initializeNav),
   TypedReducer<NavState, ChangeBottomNavAction>(_changeBottomNav),
 ]);
+
+NavState _initializeNav(NavState state, InitNav action) {
+  return state.copyWith(
+    selectedBottomNav: 0,
+    rootContainer: HomeContainer(),
+  );
+}
 
 NavState _changeBottomNav(NavState state, ChangeBottomNavAction action) {
   Widget rootContainer = state.rootContainer;

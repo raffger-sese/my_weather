@@ -4,14 +4,15 @@ import '../actions/auth_actions.dart';
 import '../models/states/auth_state.dart';
 
 Reducer<AuthState> authReducer = combineReducers([
-  TypedReducer<AuthState, UserLoginRequest>(_userLoginRequestReducer),
+  TypedReducer<AuthState, UserGithubLoginRequest>(_userLoginRequestReducer),
   TypedReducer<AuthState, UserLoginSuccess>(_userLoginRequestSuccess),
   TypedReducer<AuthState, UserLoaded>(_userLoaded),
   TypedReducer<AuthState, UserLoginFailure>(_userLoginRequestFailure),
   TypedReducer<AuthState, UserLogout>(_userLogoutReducer),
 ]);
 
-AuthState _userLoginRequestReducer(AuthState state, UserLoginRequest action) {
+AuthState _userLoginRequestReducer(
+    AuthState state, UserGithubLoginRequest action) {
   return state.copyWith(
     isLoading: true,
   );

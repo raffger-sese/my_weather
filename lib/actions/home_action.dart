@@ -1,4 +1,6 @@
-import 'package:my_weather/models/weather_forecast.dart';
+/* --------------------- Models --------------------- */
+
+import '../models/weather_forecast.dart';
 
 class ShowLocation {
   final bool isShown;

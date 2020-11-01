@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
+import 'package:my_weather/common/app_theme.dart';
 import 'package:redux/redux.dart';
 
 import '../models/states/app_state.dart';
@@ -11,8 +12,13 @@ class AuthLoadingIndicator extends StatelessWidget {
         converter: (Store<AppState> store) => _ViewModel.fromStore(store),
         builder: (BuildContext context, _ViewModel viewModel) {
           if (viewModel.isLoading) {
-            return const Center(
-              child: CircularProgressIndicator(),
+            return Container(
+              height: MediaQuery.of(context).size.height,
+              width: MediaQuery.of(context).size.width,
+              color: AppTheme.instance.lightGreyColor.withOpacity(0.5),
+              child: Center(
+                child: CircularProgressIndicator(),
+              ),
             );
           } else {
             return Container();

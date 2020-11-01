@@ -14,16 +14,6 @@ class AppTheme {
   Color regularGreyColor;
   Color midGreyColor;
   Color lightGreyColor;
-  Color lightGreyColor2;
-  Color appOtherMessageTextColor; // blue
-  Color appOtherMessageBackgroundColor; // accent blue
-  Color appOwnMessageBackgroundColor;
-  Color alertColor;
-  Color tagColor;
-
-  Color groupColor2;
-  Color groupColor3;
-  Color groupColor4;
 
   String primaryFont;
   String secondaryFont;
@@ -39,34 +29,12 @@ class AppTheme {
 
   TextStyle h1;
   TextStyle h1White;
-
   TextStyle h2;
   TextStyle h2Bold;
   TextStyle h2White;
-
-  TextStyle h3;
   TextStyle h3White;
-  TextStyle h3Active;
-  TextStyle h3Accent;
-  TextStyle h3AntiAccent;
-  TextStyle h3Blue;
-
   TextStyle text;
-  TextStyle textBold;
-  TextStyle textHint;
-  TextStyle textWhite;
-
   TextStyle textLessImportant;
-  TextStyle textLessImportantBold;
-
-  TextStyle textLessImportantAccent;
-  TextStyle textLessImportantAntiAccent;
-  TextStyle textLessImportantMidGrey;
-
-  TextStyle textSmall;
-
-  TextStyle primaryButtonText;
-  TextStyle secondaryButtonText;
 
   ThemeData appTheme;
 
@@ -82,18 +50,6 @@ class AppTheme {
     regularGreyColor = Color(0xFFCECDD5);
     midGreyColor = Color(0xFF766F39); //  chat text
     lightGreyColor = Color(0xFFEFEFEF); // textfield background
-
-    appOtherMessageTextColor = Color(0xFF0042D0); // blue
-    appOtherMessageBackgroundColor = Color(0xFFE5EAFF); // accent blue
-    appOwnMessageBackgroundColor = Color(0xFFFFF7BA);
-    alertColor = Color(0xFFFF5766); // red
-    tagColor = Color(0xFFDFDFDF); // +1 are going
-
-    lightGreyColor2 = Color(0xFFF8F8F8); // event detail background
-
-    groupColor2 = Color(0xFFE2B5FF); //purple
-    groupColor3 = Color(0xFFFDECA2); //yellow
-    groupColor4 = Color(0xFF7AFFC9); //green
 
     primaryFont = 'SourceSansPro';
     secondaryFont = 'SourceSansPro';
@@ -132,13 +88,6 @@ class AppTheme {
       fontWeight: FontWeight.w700,
     );
 
-    h3 = TextStyle(
-      color: textColor,
-      fontSize: 16.0,
-      fontFamily: primaryFont,
-      fontWeight: FontWeight.w500,
-    );
-
     h1White = TextStyle(
       color: appBackgroundColor,
       fontSize: 26.0,
@@ -160,34 +109,6 @@ class AppTheme {
       fontWeight: FontWeight.w500,
     );
 
-    h3Active = TextStyle(
-      color: activeColor,
-      fontSize: 16.0,
-      fontFamily: primaryFont,
-      fontWeight: FontWeight.w500,
-    );
-
-    h3Accent = TextStyle(
-      color: accentColor,
-      fontSize: 16.0,
-      fontFamily: primaryFont,
-      fontWeight: FontWeight.w500,
-    );
-
-    h3AntiAccent = TextStyle(
-      color: antiAccentColor,
-      fontSize: 16.0,
-      fontFamily: primaryFont,
-      fontWeight: FontWeight.w500,
-    );
-
-    h3Blue = TextStyle(
-      color: Color(0xFF271E6F),
-      fontSize: 16.0,
-      fontFamily: primaryFont,
-      fontWeight: FontWeight.w500,
-    );
-
     text = TextStyle(
       color: textColor,
       height: 1.1,
@@ -195,62 +116,9 @@ class AppTheme {
       fontFamily: primaryFont,
     );
 
-    textBold = TextStyle(
-      color: textColor,
-      height: 1.1,
-      fontSize: 16.0,
-      fontFamily: primaryFont,
-      fontWeight: FontWeight.w700,
-    );
-
-    textHint = TextStyle(
-      color: textHintColor,
-      height: 1.1,
-      fontSize: 16.0,
-      fontFamily: primaryFont,
-    );
-
-    textWhite = TextStyle(
-      color: appBackgroundColor,
-      height: 1.1,
-      fontSize: 16.0,
-      fontFamily: secondaryFont,
-    );
-
     textLessImportant = TextStyle(
       color: midGreyColor,
       fontSize: 13.0,
-      fontFamily: secondaryFont,
-    );
-
-    textLessImportantAccent = TextStyle(
-      color: accentColor,
-      fontSize: 14.0,
-      fontFamily: secondaryFont,
-    );
-
-    textLessImportantAntiAccent = TextStyle(
-      color: antiAccentColor,
-      fontSize: 14.0,
-      fontFamily: secondaryFont,
-    );
-
-    textLessImportantBold = TextStyle(
-      color: midGreyColor,
-      fontSize: 12.0,
-      fontFamily: secondaryFont,
-      fontWeight: FontWeight.w700,
-    );
-
-    textSmall = textLessImportant = TextStyle(
-      color: textHintColor,
-      fontSize: 10.0,
-      fontFamily: secondaryFont,
-    );
-
-    textLessImportantMidGrey = TextStyle(
-      color: textColor,
-      fontSize: 12.0,
       fontFamily: secondaryFont,
     );
 

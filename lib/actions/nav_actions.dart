@@ -7,3 +7,5 @@ class ChangeBottomNavAction {
     @required this.index,
   });
 }
+
+class InitNav{}

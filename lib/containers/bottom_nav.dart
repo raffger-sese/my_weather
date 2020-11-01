@@ -10,6 +10,7 @@ class BottomNav extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StoreConnector<AppState, _ViewModel>(
+      onInit: (Store<AppState> store) => store.dispatch(InitNav()),
       distinct: true,
       converter: (Store<AppState> store) => _ViewModel.fromStore(store),
       builder: (BuildContext context, _ViewModel viewModel) {

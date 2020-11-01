@@ -14,7 +14,6 @@ class AuthMiddleware {
   List<Middleware<AppState>> createAuthMiddleware() {
     return <Middleware<AppState>>[
       TypedMiddleware<AppState, AppStarted>(_appStarted),
-      TypedMiddleware<AppState, UserLoginRequest>(_login),
       TypedMiddleware<AppState, UserGithubLoginRequest>(_loginWithGithub),
       TypedMiddleware<AppState, UserLoginSuccess>(_loginSuccess),
       TypedMiddleware<AppState, UserLogout>(_logout),
@@ -41,18 +40,12 @@ class AuthMiddleware {
 
       final user = await _authService.getUserDetails(result.accessToken);
       await _persistUserData(user);
-      
+
       store.dispatch(UserLoginSuccess(token: result.idToken, user: user));
     } catch (error) {
-      print(error);
+      // print(error);
       store.dispatch(UserLoginFailure(error: error));
     }
-  }
-
-  void _login(Store<AppState> store, UserLoginRequest action,
-      NextDispatcher next) async {
-    next(action);
-    // Todo: regular login
   }
 
   void _loginSuccess(Store<AppState> store, UserLoginSuccess action,

@@ -23,16 +23,17 @@ class LoginFormState extends State<LoginForm> {
         padding: EdgeInsets.all(16.0),
         child: Form(
           key: _formKey,
-          child: ListView(
-            shrinkWrap: true,
-            children: <Widget>[
-              // Todo: Add more widget here to login using email or using other provider
-              _buildAppLogo(),
-              _buildWelcomeMessage(),
-              _buildGithubLoginButton(),
-              AuthLoadingIndicator()
-            ],
-          ),
+          child: Stack(alignment: Alignment.center, children: [
+            ListView(
+              shrinkWrap: true,
+              children: <Widget>[
+                _buildAppLogo(),
+                _buildWelcomeMessage(),
+                _buildGithubLoginButton(),
+              ],
+            ),
+            AuthLoadingIndicator()
+          ]),
         ));
   }
 

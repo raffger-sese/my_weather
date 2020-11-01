@@ -1,13 +1,7 @@
+/* --------------------- Models --------------------- */
 import '../models/user.dart';
 
 class AppStarted {}
-
-class UserLoginRequest {
-  final String email;
-  final String password;
-
-  UserLoginRequest({this.email, this.password});
-}
 
 class UserGithubLoginRequest {}
 
