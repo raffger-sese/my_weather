@@ -51,7 +51,9 @@ Widget _buildUserInfo(_ViewModel viewModel) {
     crossAxisAlignment: CrossAxisAlignment.center,
     children: <Widget>[
       Text(
-        'Hello ${viewModel.user.fullName ?? ''}!',
+        viewModel.user != null
+            ? 'Hello ${viewModel.user.fullName ?? ''}!'
+            : 'Hello there!',
         style: AppTheme.instance.h1,
       ),
       Padding(
@@ -64,12 +66,16 @@ Widget _buildUserInfo(_ViewModel viewModel) {
       Padding(
         padding: const EdgeInsets.only(top: 5.0),
         child: GestureDetector(
-          onTap: () {
-            StringUtil.instance.launchURL(
-                '${StringUtil.instance.createGithublink(viewModel.user.username)}');
-          },
+          onTap: viewModel.user != null
+              ? () {
+                  StringUtil.instance.launchURL(
+                      '${StringUtil.instance.createGithublink(viewModel.user.username)}');
+                }
+              : null,
           child: Text(
-            StringUtil.instance.createGithublink(viewModel.user.username),
+            viewModel.user != null
+                ? StringUtil.instance.createGithublink(viewModel.user.username)
+                : URLs.GITHUB,
             style: AppTheme.instance.text,
           ),
         ),

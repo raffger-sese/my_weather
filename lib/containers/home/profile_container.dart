@@ -67,8 +67,8 @@ Widget _buildHeader(_ViewModel viewModel) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: <Widget>[
-      Text(
-        viewModel.user.fullName,
+      Text(viewModel.user != null ?
+        viewModel.user.fullName : '',
         style: AppTheme.instance.text,
       ),
     ],

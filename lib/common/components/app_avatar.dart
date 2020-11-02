@@ -25,7 +25,7 @@ class AppAvatar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return user.profilePic == null || user.profilePic.isEmpty
+    return user == null || user.profilePic == null || user.profilePic.isEmpty
         ? Stack(
             alignment: Alignment.center,
             children: [
@@ -49,8 +49,8 @@ class AppAvatar extends StatelessWidget {
                   width: hasBorder ? size - 4 : size,
                   height: hasBorder ? size - 4 : size,
                   child: Center(
-                    child: Text(
-                      StringUtil.instance.getInitials(user.fullName),
+                    child: Text(user != null ? 
+                      StringUtil.instance.getInitials(user.fullName) : '',
                       textAlign: TextAlign.center,
                       style: initialTextStyle,
                     ),
